@@ -9,7 +9,7 @@
 <p>&nbsp;&nbsp;&nbsp;&nbsp;c) 轮播图支持自动轮播以及触摸轮播，轮播图由自己封装的carousel插件实现，移动端轮播采用css3中transform：translateX属性，并将轮播图的包裹元素设置translate3d(0,0,0)开启gpu加速，使轮播更加顺滑，若采用pc端left属性写轮播插件，在低版本机器中出现卡顿现象</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;d) 切换新闻类型</p>
 <div>
-     <img src="example-images/scrollnav.gif" style="width: 300px;height: 534px;margin-left: 25px;">
+     <img src="example-images/scrollnav.gif" style="width: 200px;height: 356px;margin-left: 25px;">
 </div>
 <h4>2、实现订阅功能</h4>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;a)订阅内的list由后台读取mysql内数据，并以工厂函数输出；</p>
