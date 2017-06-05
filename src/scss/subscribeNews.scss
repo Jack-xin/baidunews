@@ -1,0 +1,174 @@
+@import 'mixin';
+
+$baseWidth: 100% !default;
+$baseHeight: 100% !default;
+$baseColor: #3e98f0 !default;
+$navFontColor: #c2daf8 !default;
+
+/*reset*/
+
+/*去除chrome最新版本中给这个preventDefault返回了naive，不再清除浏览器默认行为导致的warnning*/
+// * { 
+// 	touch-action: none;   
+// } 
+
+html {
+	font-size: 62.5%;  //浏览器默认16px，所以62.5%刚好是10px，所以1rem=10px。
+	font-family: arial,sans-serif;
+	width: $baseWidth;
+	height: $baseHeight;
+}
+
+body {
+	width: $baseWidth;
+	height: $baseHeight;
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	text-decoration: none;
+}
+
+/*reset end*/
+
+.g-index {
+	width: $baseWidth;
+	font-size: 1.6rem;
+
+	header {
+		width: 3$baseWidth;
+		height: 48px;
+		background: $baseColor;
+		text-align: center;
+		color: #fff; 
+		position: relative;
+		@extend %clearfix; 
+
+		.btn_back {
+			float: left;
+			margin-left: 15px;
+			height: $baseHeight;
+			line-height: 48px;
+
+			a {
+				color: #fff; 
+				font-size: 1.8rem;
+			}
+		}
+
+		.title {
+			width: 100px;
+			position: absolute;
+			left: 50%;
+			margin-left: -50px;
+			text-align: center;
+			line-height: 48px;
+		}
+
+		.btn_close {
+			float: right;
+			margin-right: 17px;
+			height: $baseHeight;
+			line-height: 48px;
+
+			a {
+				color: #fff; 
+				font-size: 1.5rem;
+			}
+		}
+	}
+
+	.managesubscribe_list {
+		width: $baseWidth;
+		// background: orange;
+
+		h3 {
+			background: #f5f7fb;
+			border: 1px solid rgba(0,0,0,0);
+			border-width: 1px 0;
+			font-size: 1.6rem;
+			margin: 0;
+			padding: 12px 0 12px 17px;
+		}
+
+		.list-container {
+			margin: 0 17px;
+			// background: yellow;
+			
+			ul {
+				margin: 0;
+				list-style: none;
+				position: relative;
+				padding: 0;
+
+				li {
+					position: relative;
+					padding: 12px 47px 12px 27px;
+					border-bottom: 1px solid #f6f6f6;
+					border-top: 1px solid #fff;
+					font-size: 1.6rem;
+					height: 16px;
+					line-height: 16px;
+				}
+	
+				.name {
+					color: #333;
+				}
+
+				.ontop {
+					position: absolute;
+					top: 0;
+					right: -10px;
+					width: 60px;
+					height: 44px;
+					line-height: 44px;
+					font-size: 1.3rem;
+					color: #999;
+				}	
+
+				.handle {
+					@extend .ontop;
+					background-image: url('../../src/images/drag.png'); 
+					background-repeat: no-repeat;
+					background-size: 10px;
+					background-position: 33px 15.5px;
+				}
+
+				.delete {
+					@extend .ontop;
+					left: 0;
+					background-image: url('../../src/images/delete1.png'); 
+					background-repeat: no-repeat;
+					background-size: 1.3rem;
+					background-position: 0 12.5px;
+				}
+
+				.rotate {
+					background-image: url('../../src/images/delete2.png'); 
+				}
+
+				.confirm-delete {
+					position: absolute;
+					top: 6px;
+					right: 0;
+					width: 50px;
+					height: 27px;
+					line-height: 27px;
+					font-size: 1.3rem;
+					color: #fff; 
+					background-color: #f13232;
+					text-align: center;
+					display: none;
+				}
+			}
+		}
+	}
+
+
+}
+
+.ghost {
+	opacity: 0;
+}
+

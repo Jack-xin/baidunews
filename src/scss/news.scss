@@ -1,0 +1,558 @@
+@import 'mixin';
+/*reset*/
+$baseWidth: 100% !default;
+$baseHeight: 100% !default;
+$baseColor: #3e98f0 !default;
+$navFontColor: #c2daf8 !default;
+
+html {
+	font-size: 62.5%;  //浏览器默认16px，所以62.5%刚好是10px，所以1rem=10px。
+	font-family: arial,sans-serif;
+	width: $baseWidth;
+	height: $baseHeight;
+}
+
+body {
+	width: $baseWidth;
+	height: $baseHeight;
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	text-decoration: none;
+}
+
+/*reset end*/
+
+/*header*/
+
+.g-index {
+
+	.g-hd {
+		width: $baseWidth;
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 9999;
+
+		.m-hd {
+			width: $baseWidth;
+			height: 48px;
+			position: relative;
+			background: $baseColor url('../../src/images/news-logo.png') no-repeat;
+			background-position: center 10px;
+			background-size: 68px auto;
+			border-bottom: 1px solid #58a9f7;
+
+			a {
+				width: 34px;
+				height: $baseHeight;
+				text-align: center;
+				line-height: 48px;
+				font-size: 2rem;
+				color: #fff;
+				cursor: pointer;
+			}
+
+			a.float-left {
+				float: left;
+				margin-left: 8px;
+			}
+
+			a.float-right {
+				float: right;
+				margin-right: 8px;
+			}
+		}
+
+		.m-nav {
+			position: relative;
+			width: $baseWidth;
+			height: 40px;
+			background-color: $baseColor;
+			font-size: 1.6rem;
+
+			.scrollNavContainer {
+			   	position: relative;		
+				height: 40px; 
+				
+				.scrollNavWrap {
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 100px;
+					overflow: hidden;
+					height: $baseHeight;
+
+					.scrollNav {
+						margin: 0;
+						padding-left: 20px;
+						@extend %clearfix;
+
+						li {
+							float: left;
+							list-style: none;
+							height: $baseHeight;
+							margin: 0 16px;
+
+							&:first-child {
+								margin-left: 0;
+							}
+
+							a {
+								display: inline-block;
+								height: 4rem;
+								line-height: 4rem;
+								font-size: 1.6rem;
+								color: $navFontColor;
+								-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+								&:active {
+									-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+								}
+
+								&.selected {
+									height: 3.8rem;
+									color: #fff;
+									border-bottom: 2px solid #fff;	
+								}
+							}
+
+						}
+					}
+				}
+
+				.nav-placeholder {
+					position: absolute;
+					right: 45px;
+					width: 25px;
+					height: $baseHeight;
+					margin: 0;
+					background: -webkit-linear-gradient(left, rgba(62,152,240,0.7) 0%, rgba(62,152,240,0.8) 34%, rgba(62,152,240,1) 62%, rgba(62,152,240,1) 99%, rgba(62,152,240,1) 100%);
+					background: linear-gradient(to right, rgba(62,152,240,0.7) 0%, rgba(62,152,240,0.8) 34%, rgba(62,152,240,1) 62%, rgba(62,152,240,1) 99%, rgba(62,152,240,1) 100%); 
+				}
+
+				.show-more {
+					position: absolute;
+					right: 0;
+					width: 45px;
+					height: $baseHeight;
+					background: $baseColor;
+					color: $navFontColor;
+					margin: 0;
+					text-align: center;
+					line-height: 40px;
+				}
+			}
+
+			.btnNavArea {
+				width: $baseWidth;
+				background: $baseColor;
+				position: absolute;
+				top: 0;
+				left: 0;
+				// z-index: 9999;
+				display: none;
+
+				.title {
+					@extend %clearfix;
+					height: 40px;
+					position: relative;
+					background-image: url('../../src/images/thin_line.png');
+					background-repeat: repeat;
+					background-size: 10px;
+					background-position: top left;
+					color: $navFontColor;
+					font-size: 1.4rem;
+					text-align: center;
+
+
+					p {	
+						float: left;
+						margin: 0;
+						display: inline-block;
+						width: 110px;
+						line-height: 40px;
+					}
+
+					a {
+						margin: 0;
+						color: $navFontColor;
+						display: inline-block;
+						float: right;
+						width: 45px;
+						height: 39px;
+						line-height: 39px;
+					}
+				}
+				
+
+				.allMenusContainer {
+					width: $baseWidth;
+					box-sizing: border-box;
+					padding-left: 4px;
+					padding-right: 4px;				
+
+					.menus {	
+						@extend %clearfix;		
+						list-style: none;
+						margin: 0;
+						padding: 0;
+						background-image: url('../../src/images/thin_line.png');
+						background-repeat: repeat;
+						background-size: 10px;
+						background-position: top left;
+
+						li {
+							float: left;
+							font-size: 1.6rem;
+							text-align: center;
+
+							a {
+								display: inline-block;
+								height: 4rem;
+								line-height: 4rem;
+								white-space: nowrap;
+								padding: 0 4px;
+								color: $navFontColor;
+								-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+								&:active {
+									-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+								}
+
+								&.selected {
+									height: 3.8rem;
+									color: #fff;
+									border-bottom: 2px solid #fff;
+								}
+							}
+						}
+					}
+				}
+
+				.btnMenus {
+					height: 40px;
+					text-align: center;
+					font-size: 1.6rem;
+
+					a {
+						line-height: 40px;
+						color: #fff;
+					}
+				}
+			}
+			
+			.mark {
+				position: absolute;
+				top: -48px;
+				left: 0;
+				width: $baseWidth;
+				background: rgba(0,0,0,.6);
+				z-index: -1;
+				display: none;
+			}
+		}
+	}
+
+	.g-bd {
+		.wrapper {
+			width: $baseWidth;
+			position: relative;
+			top: 88px;
+
+			.carousel {
+				position: relative;
+				width: $baseWidth;
+				overflow: hidden;
+				visibility: visible;
+				
+				.carousel-content {
+					position: relative;
+					height: auto;
+
+					.carousel-item {
+						float: left;
+					    position: relative;
+					    left: 0px;
+					    height: 100%;
+					    -webkit-tap-highlight-color: rgba(0,0,0,0);
+
+					    a {
+					    	width: 100%;
+							display: block;
+							position: relative;
+
+							div {
+								overflow: hidden;
+
+								img {
+									width: 100%;
+									height: auto;
+									min-height: 210px;
+									vertical-align: middle;
+									display: block;
+								}
+							}
+
+							.option-text {
+								padding: 0 17px;
+								margin-bottom: 0;
+								text-align: left;
+								height: 48px;
+								line-height: 65px;
+								font-size: 1.6rem;
+								color: #fff;
+								overflow: hidden;
+								position: absolute;
+								bottom: 0;
+								width: 100%;
+								box-sizing: border-box;
+							}
+					    }
+					}
+				}
+
+				.carousel-nav {
+					position: absolute;
+					text-align: center;
+					bottom: 10px;
+					right: 17px;
+					font-size: 0;
+
+					.carousel-nav-item {
+						display: inline-block;
+						width: 2px;
+						height: 2px;
+						margin-left: 6px;
+						border-radius: 2px;
+						background: #999;
+						position: relative;
+						top: 0;
+					}
+
+					.active {
+						width: 4px;
+						height: 4px;
+						border-radius: 4px;
+						background: #fff;
+						top: 1px;
+					}
+				}
+				
+				// 解决安卓轮播图切换闪屏
+				.fixC {
+					transform-style: preserve-3d;
+				}
+
+				.fixI {
+					-webkit-backface-visibility: hidden;
+				    -webkit-transform: translate3d(0,0,0);
+				}
+			}
+
+			.hot-scroll-news {
+				position: relative;
+				width: $baseWidth; 
+				height: 40px;
+				
+				.hot-news-icon {
+					@extend %hot;
+					background-color: #e02f2f;
+					color: #fff;
+					width: 24px;
+					height: 14px;
+					line-height: 14px;
+					font-size: 1.1rem;
+					border-radius: 4px;
+					position: relative;
+					top: 10px;
+					left: 15px;
+					width: 10%;
+				}
+
+				.hot-news-wrapper {
+					position: relative;
+					top: -7px;
+					left: 55px;
+					height: 2rem;
+					overflow: hidden;
+					width: 73%;
+
+					.hot-news-content {
+						list-style: none;
+						padding: 0;
+						margin: 0;
+						transform: translateY(0px);
+
+						li {
+							font-size: 0;
+							margin-left: 8px;
+							white-space: nowrap;
+
+							a {
+								font-size: 1.7rem;
+								text-decoration: none;
+								color: #333;
+							}
+						}
+					}
+				}
+			}
+
+			.newslist-container {
+				font-size: 1.6rem;
+				position: relative;
+				width: $baseWidth; 
+
+				.index-list-container {
+					position: relative;
+					overflow: hidden;
+					padding: 8.5px 0 10px;
+					margin: 0 17px;
+					-webkit-tap-highlight-color: rgba(0,0,0,0);
+					
+					// 一张图片新闻
+					.showleft {
+						display: flex;
+						display: -webkit-box;
+						-webkit-box-align: center;
+						box-align: center;
+						padding-top: 5.5px;
+						padding-bottom: 3px;
+						text-align: center;	
+
+						.index-list-image {
+							font-size: 0;
+							width: 33.33%;
+							vertical-align: middle;
+							overflow: hidden;
+							background: #F4F7F9;
+							
+							img {
+								height: auto;
+								width: 100%;
+							}
+						}
+
+						.index-list-main-text {
+							width: 66.66%;
+							padding-left: 14px;
+							box-sizing: border-box;
+							text-align: left;
+							vertical-align: middle;
+						}
+
+					}
+
+					// 三张图片新闻
+					.index-list-main {
+						
+						.list-album-container {
+							margin: 2.5px 0 8px -1px;
+							overflow: hidden;
+							width: auto;
+							display: -webkit-box;
+							-webkit-box-orient: horizontal;
+							-webkit-box-direction: normal;
+							-webkit-box-pack: justify;
+							-webkit-box-align: stretch;
+							-webkit-box-lines: single;
+							display: flex;
+							-webkit-flex-direction: row;
+						    -webkit-justify-content: space-between;
+						    -webkit-align-items: stretch;
+						    -webkit-align-content: flex-start;
+						    -webkit-flex-wrap: nowrap;
+
+						    .list-album-item {
+						    	overflow: hidden;
+						    	width: 33.33%;
+						    	max-height: 111px;
+						    	margin-left: 1px;
+								
+								img {
+									width: 100%;
+								}
+						    }
+						}
+					}
+
+					// 新闻条目公用样式
+					.list-title {
+						font-size: 1.8rem;
+						line-height: 2.6rem;
+						color: #333;
+						max-height: 5.2rem;
+						overflow: hidden;
+					}
+
+					.list-bottom {
+						margin-top: 2px;
+						margin-bottom: 1px;
+
+						.tip-time {
+							display: inline-block;
+							color: #999;
+							font-size: 1.3rem;
+							margin-right: 5px;
+							font-weight: 400;
+						}
+
+						.tip-hot {
+							@extend %hot;
+						}
+					}
+
+				}
+			}
+
+			.loadingNews {
+				display: none;
+				position: absolute;
+				width: 200px;
+				height: 200px;
+				margin-left: -100px;
+				margin-top: -100px;
+				background-image: url('../../src/images/loading-news.gif');
+				background-repeat: no-repeat;
+				background-size: 250px 200px;
+				background-position: center;
+			}
+
+			.ui-refresh-wrapper {
+
+				.ui-refresh {
+					display: none;
+					height: 46px;
+					line-height: 46px;
+					font-size: 1.8rem;
+					text-align: center;
+					color: #333;
+					border: 1px solid #e0e0e0;
+				}
+
+				// .ui-refresh-loading {
+				// 	display: none;
+				// }
+			}
+		}
+	}
+
+	.back-to-top {
+		position: fixed;
+		bottom: 82px;
+		right: 13px;
+		width: 52px;
+		height: 52px;
+		cursor: pointer;
+		background-image: url('../../src/images/back-to-top.png');
+		background-repeat: no-repeat;
+		background-size: 52px auto;
+		background-position: right center;
+		z-index: 9999;
+		-webkit-tap-highlight-color: rgba(0,0,0,0);
+		display: none;
+	}
+}
